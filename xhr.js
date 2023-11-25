@@ -59,7 +59,7 @@ const sendData = () => {
 
 // sendData();
 
-//  PUT / updating data--- evabe muloto kore ========================>
+//  PATCH / updating  a single data--- evabe muloto kore ===============>
 const updateData = () => {
   makeRequest("PUT", "https://jsonplaceholder.typicode.com/users/1", {
     title: "maruf bellah",
@@ -68,4 +68,14 @@ const updateData = () => {
   });
 };
 
-updateData();
+// updateData();
+
+//  PATCH / updating  a single data--- evabe muloto kore ===============>
+const updateSingleData = () => {
+  makeRequest("PUT", "https://jsonplaceholder.typicode.com/users/1", {
+    title: "maruf belah",
+    // body: "ami bangladeshe bash kori so don't warry",
+  });
+};
+
+updateSingleData();
