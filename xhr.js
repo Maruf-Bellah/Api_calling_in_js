@@ -6,16 +6,13 @@ console.clear();
 //   xhr.send(JSON.stringify(data));
 // };
 
-
-
 // bar bar korar jonno evabe kore ================
 
-
-// GET --- evabe muloto kore ========================> 
-
-const getData = () => {
+const makeRequest = (method, url, data) => {
   const xhr = new XMLHttpRequest();
-  xhr.open("GET", "https://jsonplaceholder.typicode.com/users");
+  xhr.open(method, url);
+
+  xhr.setRequestHeader("Content-Type", "application/json");
 
   xhr.onload = () => {
     let data = xhr.response;
@@ -25,7 +22,50 @@ const getData = () => {
   xhr.onerror = () => {
     console.log("error is here");
   };
-  xhr.send();
+  xhr.send(JSON.stringify(data));
 };
 
-getData();
+// GET --- evabe muloto kore ========================>
+
+// const makeRequest = (method, url) => {
+//   const xhr = new XMLHttpRequest();
+//   xhr.open(method, url);
+
+//   xhr.onload = () => {
+//     let data = xhr.response;
+//     console.log(data);
+//   };
+
+//   xhr.onerror = () => {
+//     console.log("error is here");
+//   };
+//   xhr.send();
+// };
+
+const getData = () => {
+  makeRequest("GET", "https://jsonplaceholder.typicode.com/users");
+};
+
+// getData();
+
+//  POST  / creating data--- evabe muloto kore ========================>
+const sendData = () => {
+  makeRequest("POST", "https://jsonplaceholder.typicode.com/users", {
+    title: "my name is maruf bellah",
+    body: "ami bangladeshe bash kori so don't warry",
+    userId: 1,
+  });
+};
+
+// sendData();
+
+//  PUT / updating data--- evabe muloto kore ========================>
+const updateData = () => {
+  makeRequest("PUT", "https://jsonplaceholder.typicode.com/users/1", {
+    title: "maruf bellah",
+    body: "ami bangladeshe bash kori so don't warry",
+    userId: 1,
+  });
+};
+
+updateData();
