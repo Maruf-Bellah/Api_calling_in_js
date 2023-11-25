@@ -78,4 +78,11 @@ const updateSingleData = () => {
   });
 };
 
-updateSingleData();
+// updateSingleData();
+
+//  PATCH / updating  a single data--- evabe muloto kore ===============>
+const deleteData = () => {
+  makeRequest("DELETE", "https://jsonplaceholder.typicode.com/users/1");
+};
+
+deleteData();
