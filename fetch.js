@@ -9,6 +9,8 @@
 // - returned promise can only handle network error
 // - does not support all the older browser
 
+// method for making HTTP Request =================
+
 const makeRequest = async (url, config) => {
   const res = await fetch(url, config);
   if (!res.ok) {
@@ -22,12 +24,14 @@ const makeRequest = async (url, config) => {
 const deleteData = () => {
   makeRequest("https://jsonplaceholder.typicode.com/posts/1", {
     method: "DELETE",
+    headers: {
+      "Content-type": "application/json; charset=UTF-8",
+    },
   })
     .then((res) => console.log(res))
     .catch((err) => console.log(err));
 };
-
-deleteData();
+// deleteData();
 
 const updateSingleData = () => {
   makeRequest("https://jsonplaceholder.typicode.com/posts/1", {
@@ -35,14 +39,15 @@ const updateSingleData = () => {
     headers: {
       "Content-type": "application/json; charset=UTF-8",
     },
-
     body: JSON.stringify({
-      title: "bell maruf  ",
+      title: "maruf",
     }),
   })
     .then((res) => console.log(res))
     .catch((err) => console.log(err));
 };
+
+// updateSingleData();
 
 const updateData = () => {
   makeRequest("https://jsonplaceholder.typicode.com/posts/1", {
@@ -50,11 +55,10 @@ const updateData = () => {
     headers: {
       "Content-type": "application/json; charset=UTF-8",
     },
-
     body: JSON.stringify({
       id: 1,
-      title: "ayesha bellah ",
-      body: "bellah",
+      title: "maruf bellah",
+      body: "amr sonar bangla ",
       userId: 1,
     }),
   })
@@ -62,18 +66,17 @@ const updateData = () => {
     .catch((err) => console.log(err));
 };
 
-// updateData()
+// updateData();
 
 const sendData = () => {
-  makeRequest("https://jsonplaceholder.typicode.com/posts/", {
+  makeRequest("https://jsonplaceholder.typicode.com/posts", {
     method: "POST",
     headers: {
       "Content-type": "application/json; charset=UTF-8",
     },
-
     body: JSON.stringify({
-      title: "maruf ",
-      body: "bellah",
+      title: "maruf bellah",
+      body: "amr sonar bangla ami tomay valobashi",
       userId: 1,
     }),
   })
@@ -81,42 +84,12 @@ const sendData = () => {
     .catch((err) => console.log(err));
 };
 
-// sendData();
+
 
 const getData = () => {
-  makeRequest("https://jsonplaceholder.typicode.com/posts/")
+  makeRequest("https://jsonplaceholder.typicode.com/posts")
     .then((res) => console.log(res))
     .catch((err) => console.log(err));
 };
 
 // getData();
-
-// const sendData = () => {
-//   fetch("https://jsonplaceholder.typicode.com/posts/1", {
-//     method: "DELETE",
-//     headers: {
-//       "Content-type": "application/json; charset=UTF-8",
-//     },
-//     body: JSON.stringify({
-//       //   body: "amar sonar bangla",
-//     }),
-//   })
-//     .then((res) => res.json())
-//     .then((data) => console.log(data));
-// };
-// sendData();
-
-// const getData = () => {
-//   fetch("https://jsonplaceholder.typicode.com/posts/")
-//     .then((res) => {
-//       if (!res.ok) {
-//         const message = `Error : ${res.status}`;
-//         throw new Error(message);
-//       }
-//       return res.json();
-//     })
-//     .then((data) => console.log(data))
-//     .catch((err) => console.log(err));
-// };
-
-// // getData();
