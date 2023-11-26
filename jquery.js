@@ -1,5 +1,5 @@
-// console.clear();
-// console.log(window);
+console.clear();
+console.log(window);
 
 const makeRequest = (url, method, data) => {
   try {
@@ -57,4 +57,4 @@ const getData = () => {
   );
 };
 
-// getData();
+getData();
