@@ -1,5 +1,9 @@
 console.clear();
 
+// event - onload(), onerror()
+// property - response, responseText, responseType, responseURL, status, statusText
+// function - open(), send(), setRequestHeader()
+
 // const makeRequest = (method, url, data) => {
 //   const xhr = new XMLHttpRequest();
 //   xhr.open(method, url);
@@ -98,18 +102,6 @@ console.clear();
 
 // deleteData();
 
-
-
-
-
-
-
-
-
-
-
-
-
 const makeRequest = (method, url, data) => {
   const xhr = new XMLHttpRequest();
   xhr.open(method, url);
@@ -168,6 +160,7 @@ const deleteData = () => {
 
 deleteData();
 
-fetch("https://jsonplaceholder.typicode.com/posts?userId=1")
-  .then((response) => response.json())
-  .then((json) => console.log(json));
+fetch("https://jsonplaceholder.typicode.com/posts?userId=1").then((response) =>
+  response.json()
+);
+// .then((json) => console.log(json));
